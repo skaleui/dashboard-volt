@@ -39,7 +39,10 @@
     "chartist-plugin-tooltips-updated": "^0.1.4",
     "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
+    "powerbi-client": "^2.18.0",
+    "powerbi-client-react": "^1.3.3",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.6.1",
     "react-chartist": "^0.14.3",
     "react-copy-to-clipboard": "^5.0.3",
     "react-datetime": "^3.0.4",
@@ -49,6 +52,7 @@
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.3.1",
     "react-scripts": "3.4.3",
+    "react-table": "^7.7.0",
     "react-transition-group": "^4.4.1",
     "simplebar-react": "^2.3.0"
   },

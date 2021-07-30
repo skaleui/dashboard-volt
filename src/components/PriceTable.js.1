@@ -1,0 +1,88 @@
+
+import React, { useMemo, useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup } from 'react-bootstrap';
+
+const ValueChange = ({ value, suffix }) => {
+  const valueIcon = value < 0 ? faAngleDown : faAngleUp;
+  const valueTxtColor = value < 0 ? "text-danger" : "text-success";
+
+  return (
+    value ? <span className={valueTxtColor}>
+      <FontAwesomeIcon icon={valueIcon} />
+      <span className="fw-bold ms-1">
+        {Math.abs(value)}{suffix}
+      </span>
+    </span> : "--"
+  );
+};
+
+
+
+export const PriceDataTable = () => {
+
+  const [requestData, setData] = useState({ data: [], isFetching: false });
+
+  useEffect(() => {
+    setData({ data: [], isFetching: true });
+
+    const doFetchPricingData = async () => {
+      const response = await fetch('https://6093046a85ff510017214172.mockapi.io/api/products/ecomproducts');
+      const priceData = await response.json();
+
+      setData({ data: priceData, isFetching: false });
+    };
+
+    doFetchPricingData();
+  }, []);
+
+
+  const TableRow = (props) => {
+    const { id, product, description, price, quantity, storeid, image } = props;
+
+    return (
+      <tr>
+        <td>
+          <Card.Link href="#" className="text-primary fw-bold">{id}</Card.Link>
+        </td>
+        <td>{product}</td>
+        <td>{description}</td>
+        <td>${price}</td>
+        <td>{quantity}</td>
+        <td>{storeid}</td>
+        <td>
+          <Image src={image} thumbnail
+            style={{
+              width: '12%'
+            }}/>
+        </td>
+      </tr>
+    );
+  };
+
+  return (
+    <Card border="light" className="shadow-sm mb-4">
+      <Card.Body className="pb-0">
+        <Table responsive className="table-centered table-nowrap rounded mb-0">
+          <thead className="thead-light">
+            <tr>
+              <th className="border-0">#</th>
+              <th className="border-0">Product</th>
+              <th className="border-0">Description</th>
+              <th className="border-0">Price</th>
+              <th className="border-0">Quantity</th>
+              <th className="border-0">Store ID</th>
+              <th className="border-0">Product Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            { requestData.isFetching ? <div>Fetching</div> :
+              requestData.data.map(pt => <TableRow key={pt.id} {...pt} />)
+            }
+          </tbody>
+        </Table>
+      </Card.Body>
+    </Card>
+  );
+};

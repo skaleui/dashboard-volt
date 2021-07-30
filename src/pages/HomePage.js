@@ -16,6 +16,9 @@ import ResetPassword from "./examples/ResetPassword";
 import Lock from "./examples/Lock";
 import NotFoundPage from "./examples/NotFound";
 import ServerError from "./examples/ServerError";
+import Users from './Users';
+import PowerBI from './PowerBI';
+import PriceData from './PriceData';
 
 // documentation pages
 import DocsOverview from "./documentation/DocsOverview";
@@ -114,6 +117,9 @@ export default () => (
     <RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
+    <RouteWithSidebar exact path={Routes.Users.path} component={Users} />
+    <RouteWithSidebar exact path={Routes.PowerBI.path} component={PowerBI} />
+    <RouteWithSidebar exact path={Routes.PriceData.path} component={PriceData} />
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
 
     {/* components */}

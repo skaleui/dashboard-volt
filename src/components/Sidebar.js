@@ -105,9 +105,11 @@ export default (props = {}) => {
 
               <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
                 <NavItem title="Bootstrap Table" link={Routes.BootstrapTables.path} />
+                <NavItem title="Price Data Table" link={Routes.PriceData.path} />
               </CollapsableNavItem>
 
               <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
+                <NavItem title="Users" link={Routes.Users.path} />
                 <NavItem title="Sign In" link={Routes.Signin.path} />
                 <NavItem title="Sign Up" link={Routes.Signup.path} />
                 <NavItem title="Forgot password" link={Routes.ForgotPassword.path} />
