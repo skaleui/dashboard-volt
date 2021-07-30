@@ -1,6 +1,6 @@
 import React from 'react';
-import { PowerBIEmbed } from 'powerbi-client-react';
-import { models } from 'powerbi-client';
+// import { PowerBIEmbed } from 'powerbi-client-react';
+// import { models } from 'powerbi-client';
 
 export default () => {
   return (

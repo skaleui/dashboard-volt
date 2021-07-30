@@ -1,28 +1,26 @@
 
 import React, { useMemo, useEffect, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import {
   useTable,
   usePagination,
   useSortBy,
-  useFilters, } from 'react-table';
+} from 'react-table';
 // import "react-table/react-table.css";
 
-const ValueChange = ({ value, suffix }) => {
-  const valueIcon = value < 0 ? faAngleDown : faAngleUp;
-  const valueTxtColor = value < 0 ? "text-danger" : "text-success";
+// const ValueChange = ({ value, suffix }) => {
+//   const valueIcon = value < 0 ? faAngleDown : faAngleUp;
+//   const valueTxtColor = value < 0 ? "text-danger" : "text-success";
 
-  return (
-    value ? <span className={valueTxtColor}>
-      <FontAwesomeIcon icon={valueIcon} />
-      <span className="fw-bold ms-1">
-        {Math.abs(value)}{suffix}
-      </span>
-    </span> : "--"
-  );
-};
+//   return (
+//     value ? <span className={valueTxtColor}>
+//       <FontAwesomeIcon icon={valueIcon} />
+//       <span className="fw-bold ms-1">
+//         {Math.abs(value)}{suffix}
+//       </span>
+//     </span> : "--"
+//   );
+// };
 
 
 
@@ -92,21 +90,21 @@ export const PriceDataTable = () => {
   // React-Table functionality
 
     // Define a default UI for filtering
-    function DefaultColumnFilter({
-      column: { filterValue, preFilteredRows, setFilter },
-    }) {
-      const count = preFilteredRows.length
+    // function DefaultColumnFilter({
+    //   column: { filterValue, preFilteredRows, setFilter },
+    // }) {
+    //   const count = preFilteredRows.length
 
-      return (
-        <input
-          value={filterValue || ''}
-          onChange={e => {
-            setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
-          }}
-          placeholder={`Search ${count} records...`}
-        />
-      )
-    }
+    //   return (
+    //     <input
+    //       value={filterValue || ''}
+    //       onChange={e => {
+    //         setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
+    //       }}
+    //       placeholder={`Search ${count} records...`}
+    //     />
+    //   )
+    // }
 
 
    function RTable ({columns, data}) {
