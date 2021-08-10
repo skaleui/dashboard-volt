@@ -28,11 +28,15 @@ export const PriceDataTable = () => {
 
   const [requestData, setData] = useState({ data: [], isFetching: false });
 
+  const produrl = "https://my.api.mockaroo.com/ecomproducts.json?key=181529d0&count=100";
+  // const produrl = "https://6093046a85ff510017214172.mockapi.io/api/products/ecomproducts";
+
+
   useEffect(() => {
     setData({ data: [], isFetching: true });
 
     const doFetchPricingData = async () => {
-      const response = await fetch('https://6093046a85ff510017214172.mockapi.io/api/products/ecomproducts');
+      const response = await fetch(produrl);
       const priceData = await response.json();
 
       setData({ data: priceData, isFetching: false });
@@ -75,7 +79,7 @@ export const PriceDataTable = () => {
           <div className="blog-comments__avatar mr-3">
             <img
               src={value} alt={value}
-              style={{width:'12%'}}
+              style={{width:'25%'}}
             />
           </div>
         )
@@ -147,13 +151,18 @@ export const PriceDataTable = () => {
                 {headerGroups.map((group) => (
                   <tr {...group.getHeaderGroupProps()}>
                     {group.headers.map((column) => (
-                      <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}<span>{
+                      <th
+                        style={{
+                          border: '1px red solid'
+                        }}
+                        {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}<span>{
                         column.isSorted
                           ? column.isSortedDesc
                             ? ' 🔽'
                             : ' 🔼'
                           : ''
-                      }</span></th>
+                        }</span>
+                      </th>
                     ))}
                   </tr>
                 ))}
@@ -165,7 +174,11 @@ export const PriceDataTable = () => {
                     <tr {...row.getRowProps()}>
                       {row.cells.map((cell) => {
                         return (
-                          <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                          <td
+                            style={{
+                              border: '1px black solid'
+                            }}
+                            {...cell.getCellProps()}>{cell.render("Cell")}</td>
                         );
                       })}
                     </tr>

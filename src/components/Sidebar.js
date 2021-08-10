@@ -110,6 +110,7 @@ export default (props = {}) => {
 
               <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
                 <NavItem title="Users" link={Routes.Users.path} />
+                <NavItem title="PowerBI" link={Routes.PowerBI.path} />
                 <NavItem title="Sign In" link={Routes.Signin.path} />
                 <NavItem title="Sign Up" link={Routes.Signup.path} />
                 <NavItem title="Forgot password" link={Routes.ForgotPassword.path} />
